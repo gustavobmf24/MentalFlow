@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #111;
+  background-size: cover;
+  /* cobre toda a tela */
+  background-repeat: no-repeat;
+  /* não repete */
+  background-position: center;
+  /* centraliza a imagem */
+  overflow: scroll;
+
+}
+
+
+/* HEADER */
+header {
+  background-color: rgba(249, 249, 249, 0.251);
+  backdrop-filter: blur(5px);
+  box-shadow: #111;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.container {
+  background-image: url(../assets/imgs/papel\ dark.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.sobre-nos {
+  height: 100vh;
+}
+
+.logo {
+  background: transparent;
+
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 105px;
+  margin-top: 1px;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: x-large;
+
+}
+
+header ul img {
+  margin-top: -5px;
+  margin-right: -100px;
+
+}
+
+
+
+/* BOAS-VINDAS */
+.boas-vindas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  background-color: rgba(13, 0, 0, 0.366);
+  backdrop-filter: blur(05px);
+  border-radius: 40px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 600px;
+  max-width: 90%;
+  text-align: center;
+  height: 330px;
+  font-size: 37px;
+  font-weight: bold;
+}
+
+.boas-vindas h3 {
+  color: #00d9ffd3;
+  align-items: center;
+  font-family: Calisto MT, Bookman Old Style, Bookman, Goudy Old Style, Garamond, Hoefler Text, Bitstream Charter, Georgia, serif;
+}
+
+
+
+.boas-vindas .texto {
+  text-align: center;
+}
+
+.boas-vindas .texto p {
+  color: #bdfaff;
+}
+
+.boas-vindas h1 {
+  color: #bab9b9;
+  font-family: initial;
+
+
+
+}
+
+.boas-vindas h1 img {
+  width: 370px;
+  position: relative;
+  height: 370px;
+  left: 10px;
+}
+
+
+.boas-vindas h2 {
+
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px;
+  font-style: italic;
+  color: rgba(0, 98, 255, 0.994);
+  height: 100px;
+}
+
+.boas-vindas p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.menuVertical {
+  height: 1000px;
+}
+
+/* SOBRE NÓS */
+.sobre-nos-titulo {
+  color: #359bb8fb;
+  text-align: center;
+  font-size: 25px;
+  padding: 5px 5px;
+  transform: translate(-20px, -20px);
+  background-color: #1b2e35;
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  margin-left: 210px;
+  margin-top: 57px;
+  font-size: 40px;
+  margin-right: 600px;
+}
+
+.sobre-nos-img {
+  margin-left: 1123px;
+  margin-top: -639px;
+  width: 453px;
+  box-shadow: 0 0 30px rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+.descricao {
+  margin-left: 180px;
+  font-size: 30px;
+  margin-top: 50px;
+  width: 120vh;
+  transform: translate(-50px, -50px);
+ 
+  
+ 
+  padding: 40px;
+  box-shadow: 0 0 3px rgb(25, 0, 255);
+
+}
+
+
+.cartoes {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 9vh;
+  width: 100%;
+  height: 35vh;
+  flex-direction: row;
+  font-size: large;
+}
+
+.cartao {
+  width: 27%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #000000;
+}
+
+.cartao .cabecalho {
+  background-color: #1d1d1d;
+  color: #fff;
+  padding: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cartao .conteudo {
+  background-color: #bdfaff;
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
+}

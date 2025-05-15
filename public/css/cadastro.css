@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../assets/imgs/Beauty-Champions-League-Wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.container{
+  width: 490px;
+  background-color: transparent;
+  border: 2px solid rgba(34, 0, 255, 0.37);
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 30px 40px;
+  box-shadow: 0 0 10px rgba(0, 17, 251, 0.2);
+  backdrop-filter: blur(40px);
+  height: 500px;
+}
+
+.container h1{
+  font-size: 36px;
+  text-align: center;
+}
+
+.input-box{
+  position: relative;
+  width: 100%;
+  height: 10px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.input-box input{
+  width: 100%;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.563);
+  border-radius: 40px;
+  outline: none;
+  font-size: 17px;
+  color: #f9f9f9;
+  padding: 20px 45px 20px 20px;
+margin: 10px auto;
+  display: block;
+
+}
+
+.input-box input{
+  color: #ffffff;
+}
+
+.input-box i{
+position: absolute;
+right: 20px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 20px;
+}
+ 
+.remember-forgot {
+display: flex;
+justify-content: space-between;
+margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+  accent-color: #1900ff;
+  margin-right: 4px;
+}
+input::placeholder {
+  color: #ffffff;
+}
+
+
+.remember-forgot a {
+text-decoration: none;
+color: #ffffff;
+}
+
+.remember-forgot a:hover{
+text-decoration: underline;
+}
+
+.Cadastro {
+  width: 300px;
+  height: 50px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #0400ff;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgb(0, 0, 255);
+  margin-top: 20px;
+}
+
+.Cadastro:hover{
+  background-color: transparent;
+  border: 2px solid rgb(25, 0, 255);
+  color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+
+.register-link {
+  font-size: 14px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link a {
+  text-decoration: none;
+  color: blue;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+text-decoration: underline;
+
+}

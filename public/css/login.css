@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../assets/imgs/Beauty-Champions-League-Wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.container{
+  width: 420px;
+  background-color: transparent;
+  border: 2px solid rgba(34, 0, 255, 0.37);
+  border-radius: 20px;
+  color: #fff;
+  padding: 30px 40px;
+  box-shadow: 0 0 10px rgba(0, 17, 251, 0.2);
+  backdrop-filter: blur(40px);
+  
+}
+.container h1{
+  font-size: 36px;
+  text-align: center;
+}
+  
+.input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid rgba(228, 228, 228, 0.563);
+  border-radius: 40px;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+.input-box input{
+  color: #9e9e9e;
+}
+
+.input-box i{
+position: absolute;
+right: 20px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 20px;
+}
+
+.remember-forgot {
+display: flex;
+justify-content: space-between;
+margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 4px;
+}
+
+input::placeholder {
+  color: #ffffff; 
+}
+
+.remember-forgot a {
+text-decoration: none;
+color: #fff;
+}
+
+.remember-forgot a:hover{
+text-decoration: underline;
+}
+
+.login {
+  width: 200px;
+  height: 50px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color:rgb(25, 0, 255);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgb(0, 0, 255);
+  margin-top: 20px;
+  margin-left: 20%;
+}
+
+.login:hover{
+  background-color: transparent;
+  border: 2px solid rgba(25, 0, 255, 0.2);
+  color: white;
+  transition: 0.5s;
+}
+
+.register-link {
+  font-size: 14px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link a {
+  text-decoration: none;
+  color: blue;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+text-decoration: underline;
+
+}
