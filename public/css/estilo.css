@@ -165,7 +165,7 @@ header ul img {
   position: relative;
   top: -742px;
   width: 453px;
-  height: 770px;
+  height: 746px;
   box-shadow: 0 0 30px rgb(0, 0, 0);
   border-radius: 2px;
 }
@@ -181,54 +181,69 @@ header ul img {
 
 }
 
-
- .card-container {
-      display: flex;
-      gap: 90px;
-      position: relative;
-      height: 100px;
-     text-align: justify;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-    }
-
-    .card {
+.estadio{
+  background-image: url(../assets/imgs/imagem\ campo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+#tituloQuiz{
+  font-size: 90px;
+  position: relative;
+  left: 200px;
+}
+h1{
+  font-size: 100px;
+  position: relative;
+  left: 40%;
+  top: 10px;
+}
+ #quiz {
+      background-color: #004cff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgb(0, 0, 0);
+      height: 360px;
+      width: 600px;
       text-align: center;
       position: relative;
-      width: 320px;
-      left: 190px;
-      height: 100px;
+      top: 100px;
+      left: 320px;
     }
 
-    .card .bottom {
-      background-color: #002d75;
-      height: 100px;
-      color: white;
-      border-radius: 5px;
+    .pergunta {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #020025;
       position: relative;
-      top: 90px;
+      
     }
 
-    .card .top {
-      background-color: #020045; 
-      color: white;
-      padding: 20px;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      border-radius: 5px;
-    }
-
-    .card .top i {
-      font-size: 30px;
+    .opcao {
       display: block;
-      margin-bottom: 10px;
+      margin: 10px auto;
+      padding: 10px;
+      width: 450px;
+      font-size: 1em;
+      background-color: #003b89;
+      color: #00f7ff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+      top: 100px;
     }
 
-    /* Ícones em forma de emoji como exemplo */
-    .icon-alvo::before { content: ""; }
-    .icon-olho::before { content: ""; }
-    .icon-diamante::before { content: ""; }
+    .opcao:hover {
+      background-color: #0b0084;
+      transition: 1.3s;
+      
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ff0000;
+    }
