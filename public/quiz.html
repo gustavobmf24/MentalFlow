@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de Psicologia Esportiva</title>
+  <link rel="stylesheet" href="./css/quiz.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="dentro-container">
+    <h1>Quiz de Psicologia Esportiva</h1>
+    <div id="quiz"></div>
+    <button id="proxima">Próxima</button>
+    </div>
+    <div id="resultado"></div>
+  </div>
+  <script src="script.js"></script>
+  
+</body>
+</html>
+<script>
+const perguntas = [
+  {
+    texto: "1. Qual o percentual médio de melhora no desempenho de um atleta com acompanhamento psicológico?",
+    opcoes: ["5%", "10%", "20%", "40%"],
+    correta: 2
+  },
+  {
+    texto: "2. Qual dessas habilidades é mais desenvolvida com o suporte de um psicólogo esportivo?",
+    opcoes: ["Força muscular", "Técnica de jogo", "Controle emocional", "Velocidade de reação"],
+    correta: 2
+  },
+  {
+    texto: "3. Atletas com acompanhamento psicológico têm menos chances de se lesionar.",
+    opcoes: ["Verdadeiro", "Falso"],
+    correta: 0
+  },
+  {
+    texto: "4. Qual dessas áreas a psicologia esportiva NÃO trabalha diretamente?",
+    opcoes: ["Motivação", "Concentração", "Tática de jogo", "Ansiedade"],
+    correta: 2
+  },
+  {
+    texto: "5. Quantos atletas de alto rendimento já utilizam acompanhamento psicológico?",
+    opcoes: ["Menos de 10%", "30%", "40 a 60%", "Mais de 80%"],
+    correta: 3
+  }
+];
+
+let perguntaAtual = 0;
+let acertos = 0;
+
+const quizDiv = document.getElementById("quiz");
+const btnProxima = document.getElementById("proxima");
+const divResultado = document.getElementById("resultado");
+
+
+function mostrarPergunta() {
+  const p = perguntas[perguntaAtual];
+  quizDiv.innerHTML = `<p class="pergunta">${p.texto}</p>`;
+
+
+  for (var i = 0; i < p.opcoes.length; i++) {
+    quizDiv.innerHTML += `<button class="opcao" onclick="responder(${i})">${p.opcoes[i]}</button>`;
+  }
+}
+
+function responder(respostaSelecionada) {
+  const pergunta = perguntas[perguntaAtual];
+
+  if (respostaSelecionada === pergunta.correta) {
+    acertos++;
+  }
+
+  btnProxima.style.display = "block";
+}
+
+btnProxima.addEventListener("click", () => {
+  perguntaAtual++;
+  btnProxima.style.display = "none";
+
+  if (perguntaAtual < perguntas.length) {
+    mostrarPergunta();
+  } else {
+    mostrarResultado();
+  }
+});
+
+function mostrarResultado() {
+  quizDiv.innerHTML = "";
+
+  const total = perguntas.length;
+  const percentual = ((acertos / total) * 100).toFixed(1);
+
+  divResultado.innerHTML = `
+    <p>Você acertou <strong>${acertos}</strong> de <strong>${total}</strong> perguntas.</p>
+    <p>Seu desempenho foi de <strong>${percentual}%</strong>.</p>
+  `;
+}
+
+
+
+mostrarPergunta();
+
+</script>

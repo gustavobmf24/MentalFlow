@@ -10,26 +10,27 @@ body {
   background-color: #fff;
   color: #111;
   background-size: cover;
-  /* cobre toda a tela */
   background-repeat: no-repeat;
-  /* não repete */
   background-position: center;
-  /* centraliza a imagem */
   overflow: scroll;
-
+  background-image: url(../assets/imgs/fundodoquiz.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
 /* HEADER */
 header {
-  background-color: rgba(249, 249, 249, 0.251);
-  backdrop-filter: blur(5px);
+ color: #30d2ff;
+  
   box-shadow: #111;
   padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
+  position: fixed;
+  width: 1520px;
 }
 
 .container {
@@ -58,7 +59,7 @@ header ul {
 }
 
 header a {
-  color: #ffffff;
+  color: #0095ff;
   text-decoration: none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: x-large;
@@ -68,7 +69,6 @@ header a {
 header ul img {
   margin-top: -5px;
   margin-right: -100px;
-
 }
 
 
@@ -84,12 +84,14 @@ header ul img {
   border-radius: 40px;
   padding: 40px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  transition: 1s;
   width: 600px;
   max-width: 90%;
   text-align: center;
   height: 330px;
   font-size: 37px;
   font-weight: bold;
+  transition: all;
 }
 
 .boas-vindas h3 {
@@ -102,18 +104,19 @@ header ul img {
 
 .boas-vindas .texto {
   text-align: center;
+  position: relative;
+  right: 230px;
 }
 
 .boas-vindas .texto p {
   color: #bdfaff;
+  position: relative;
+  left: 230px;
 }
 
 .boas-vindas h1 {
   color: #bab9b9;
   font-family: initial;
-
-
-
 }
 
 .boas-vindas h1 img {
@@ -145,27 +148,29 @@ header ul img {
 
 /* SOBRE NÓS */
 .sobre-nos-titulo {
-  color: #004fce;
+  color: #ffffff;
   text-align: center;
   font-size: 35px;
   padding: 5px 5px;
   transform: translate(-20px, -20px);
   background-color: #020045;
   backdrop-filter: blur(15px);
-  border-radius: 5px;
+  border-radius: 30px;
   margin-left: 710px;
   margin-top: 50px;
-  margin-right: 500px;
+  margin-right: 400px;
   position: relative;
-  right: 300px;
+  right: 350px;
+  width: ;
+
 }
 
 .sobre-nos-img {
-  margin-left: 1123px;
+  margin-left: 1068px;
   position: relative;
   top: -742px;
   width: 453px;
-  height: 746px;
+  height: 700px;
   box-shadow: 0 0 30px rgb(0, 0, 0);
   border-radius: 2px;
 }
@@ -177,73 +182,79 @@ header ul img {
   width: 120vh;
   transform: translate(-50px, -50px);
   padding: 40px;
-  box-shadow: 0 0 0px rgb(0, 0, 0);
-
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+.linha-horizontal {
+  height: 2px;
+  background-color: white;
+  width: 100%;
+  margin: 40px 0;
+  opacity: 0.3;
 }
 
-.estadio{
-  background-image: url(../assets/imgs/imagem\ campo.jpg);
+.estadio {
+  background-image: url(../assets/imgs/fundodoquiz.png)linear-gradient(to top -100px);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
 }
-#tituloQuiz{
+
+#tituloQuiz {
   font-size: 90px;
   position: relative;
   left: 200px;
+  color: white;
 }
-h1{
+
+h1 {
   font-size: 100px;
   position: relative;
   left: 40%;
   top: 10px;
+  color: #0f00b9;
+  border-radius: 90px;
 }
- #quiz {
-      background-color: #004cff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgb(0, 0, 0);
-      height: 360px;
-      width: 600px;
-      text-align: center;
-      position: relative;
-      top: 100px;
-      left: 320px;
-    }
+.Quiz{
+  color: rgb(0, 0, 0);
+  font-size: 150px;
+  background-color: #30d2ff;
+  text-align: center;
+  position: relative;
+  top: 90px;
+  height: 150px;
+   box-shadow: 0 0 20px white;
+}
+.Quiz h2{
+  color: #020045;
+  position: relative;
+  right: 20px;
+  font-size: 140px;
+  text-align: center;
+}
 
-    .pergunta {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      color: #020025;
-      position: relative;
-      
-    }
+.botao-quiz{
+  width: 150px;
+  height: 60px;
+  border-radius: 40px;
+  font-size: 18px;
+  background-color: #30d2ff;
+  box-shadow: 0 0 10px white;
+  color: #00033d;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  right: 20px;
+}
 
-    .opcao {
-      display: block;
-      margin: 10px auto;
-      padding: 10px;
-      width: 450px;
-      font-size: 1em;
-      background-color: #003b89;
-      color: #00f7ff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s;
-      position: relative;
-      top: 100px;
-    }
+.Quiz p{
+  font-size: 20px;
+  color: white;
+  position: relative;
+  top: 40px;
+}
 
-    .opcao:hover {
-      background-color: #0b0084;
-      transition: 1.3s;
-      
-    }
 
-    #resultado {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #ff0000;
-    }
+
+

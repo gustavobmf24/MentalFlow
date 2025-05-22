@@ -8,21 +8,21 @@
   <link rel="stylesheet" href="./css/estilo.css">
 </head>
 
+<header>
+  <img src="./assets/imgs/logo.png" alt="Logo" width="100px" height="100px">
+  <ul>
+    <li class="Home"><a href="#">Home</a></li>
+    <li class="SobreNos"><a href="#">Sobre nós</a></li>
+    <li class="Serviço"><a href="#">Quiz</a></li>
+    <li class="FaleConosco"><a href="#">Fale Conosco</a></li>
+    <li class="|"><a href="#">|</a></li>
+    <img src="./assets/imgs/PainelDoCliente.png" alt="cadastro" width="30px" height="30px">
+    <li class="Painel"><a href="./login.html">Painel do Cliente</a></li>
+  </ul>
+</header>
 <body style="overflow-x: hidden;">
 
   <div class="container">
-    <header>
-      <img src="./assets/imgs/logo.png" alt="Logo" width="100px" height="100px">
-      <ul>
-        <li class="Home"><a href="#">Home</a></li>
-        <li class="SobreNos"><a href="#">Sobre nós</a></li>
-        <li class="Serviço"><a href="#">Quiz</a></li>
-        <li class="FaleConosco"><a href="#">Fale Conosco</a></li>
-        <li class="|"><a href="#">|</a></li>
-        <img src="./assets/imgs/PainelDoCliente.png" alt="cadastro" width="30px" height="30px">
-        <li class="Painel"><a href="./login.html">Painel do Cliente</a></li>
-      </ul>
-    </header>
     <div class="boas-vindas">
       <div class="imagem">
       </div>
@@ -43,11 +43,12 @@
 
 
   <div class="sobre-nos">
+    
     <h2 class="sobre-nos-titulo"><i>SOBRE NÓS</i></h2>
 
 
     <div class="descricao">
-      <p>
+      <p style="color: white;">
         Na MentalFlow, acreditamos que a mente é o maior diferencial dentro das quatro linhas. Nosso propósito é mostrar
         que a psicologia não é apenas um complemento no futebol — ela é fundamental.
 
@@ -72,97 +73,18 @@
       </p>
     </div>
     <img class="sobre-nos-img" src="../public/assets/imgs/Cristiano.jpg" alt="">
-  </div>
+  </div></div><div class="linha-horizontal"></div>
 
 
   <div class="estadio">
-    <h1><i>𝑄𝑢𝑖𝑧</i></h1>
-    <div id="quiz">
-      
-      <div id="pergunta" class="pergunta">Pergunta aqui</div>
-      <button class="opcao" onclick="responder(this)">a)</button>
-      <button class="opcao" onclick="responder(this)">b)</button>
-      <button class="opcao" onclick="responder(this)">c)</button>
-      <button class="opcao" onclick="responder(this)">d)</button>
-      <div id="resultado"></div>
+    <div class="Quiz">
+      <h2>Quiz</h2>
+      <p><b>Avalie como a psicologia esportiva influencia o desempenho, preparo mental e <br> prevenção de lesões no futebol.</b>
+<br><i><br>Este quiz explora os principais impactos psicológicos no alto rendimento esportivo.</i></p>
+      <button class="botao-quiz" href="../public/login.html">Começar</button>
     </div>
-  </div>
-    
-    <script>
-      const perguntas = [
-        {
-        texto: "Qual jogador da seleção brasileira falou publicamente sobre depressão em 2011?",
-        opcoes: {
-          a: "Ronaldinho Gaúcho",
-          b: "Denílson",
-          c: "Ronaldo Fenômeno",
-          d: "Kaká"
-        },
-        correta: "b"
-      },
-      {
-        texto: "Andrés Iniesta falou abertamente sobre qual problema psicológico?",
-        opcoes: {
-          a: "Ansiedade",
-          b: "Depressão",
-          c: "Transtorno bipolar",
-          d: "Síndrome do pânico"
-        },
-        correta: "b"
-      },
-      {
-        texto: "Qual goleiro brasileiro revelou ter feito terapia durante a carreira?",
-        opcoes: {
-          a: "Dida",
-          b: "Cássio",
-          c: "Júlio César",
-          d: "Victor"
-        },
-        correta: "c"
-      }
-    ];
-
-    let indice = 0;
-
-    function mostrarPergunta() {
-      const perguntaAtual = perguntas[indice];
-      const botoes = document.getElementsByTagName("button");
-
-      document.getElementById("pergunta").textContent = perguntaAtual.texto;
-      botoes[0].textContent = "a) " + perguntaAtual.opcoes.a;
-      botoes[1].textContent = "b) " + perguntaAtual.opcoes.b;
-      botoes[2].textContent = "c) " + perguntaAtual.opcoes.c;
-      botoes[3].textContent = "d) " + perguntaAtual.opcoes.d;
-
-      for (let i = 0; i < 4; i++) {
-        botoes[i].setAttribute("data-correta", perguntaAtual.correta);
-      }
-
-      document.getElementById("resultado").textContent = "";
-    }
-
-    function responder(botao) {
-      const resposta = botao.textContent.trim().charAt(0).toLowerCase();
-      const correta = botao.getAttribute("data-correta");
-
-      if (resposta === correta) {
-        document.getElementById("resultado").textContent = "Resposta correta!";
-      } else {
-        document.getElementById("resultado").textContent = "Resposta incorreta.";
-      }
-
-      setTimeout(() => {
-        indice++;
-        if (indice < perguntas.length) {
-          mostrarPergunta();
-        } else {
-          document.getElementById("quiz").innerHTML = "<h2>Quiz finalizado! Obrigado por participar.</h2>";
-        }
-      }, 1500);
-    }
-
-    // Inicializa a primeira pergunta
-    mostrarPergunta();
+   
+   </div>
 </script>
 </body>
 

@@ -1,103 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz + Dashboard MentalFlow</title>
+  <title>Dashboard MentalFlow</title>
+  <link rel="stylesheet" href="./css/dashboards.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0 40px;
-    }
 
-    h1, h2 {
-      text-align: center;
-    }
-
-    .quiz-section, .dashboard-section {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 30px auto;
-      max-width: 800px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .kpis {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 30px;
-    }
-
-    .kpi {
-      background: #00C2E7;
-      padding: 20px;
-      border-radius: 8px;
-      color: white;
-      width: 28%;
-      text-align: center;
-    }
-
-    canvas {
-      max-width: 100%;
-    }
-  </style>
+    
 </head>
 <body>
-  
-   
-    
+  <div class="container">
+    <h1>Resultados do Quiz - MentalFlow</h1>
 
-  <div class="dashboard-section">
-    <h2>Dashboard MentalFlow</h2>
-    <div class="kpis">
-      <div class="kpi">
-        <h3>Atletas Acompanhados</h3>
-        <p>82%</p>
+    <div class="cards">
+      <div class="card">
+        <h2>Melhora Média no Desempenho</h2>
+        <div class="valor">20%</div>
+        <p>Acompanhamento psicológico pode aumentar o desempenho em até 20%.</p>
       </div>
-      <div class="kpi">
-        <h3>Média de Evolução</h3>
-        <p>+28%</p>
+      <div class="card">
+        <h2>Habilidade Mais Impactada</h2>
+        <div class="valor">Controle Emocional</div>
+        <p>Aspecto mais desenvolvido com apoio psicológico.</p>
       </div>
-      <div class="kpi">
-        <h3>Redução de Erros</h3>
-        <p>-35%</p>
+      <div class="card">
+        <h2>Menor Índice de Lesões</h2>
+        <div class="valor">Verdadeiro</div>
+        <p>Estudos indicam menor ocorrência de lesões com suporte psicológico.</p>
       </div>
     </div>
 
-    <canvas id="lineChart"></canvas>
+    <h2 style="text-align:center; margin-bottom: 20px;">Desempenho por Mês com e sem acompanhamento psicológico</h2>
+    <canvas id="grafico" width="1000" height="350"></canvas>
   </div>
 
+  <!-- BOTÃO VOLTAR -->
+  <button class="botao-voltar" onclick="voltarPagina()">Voltar</button>
+
   <script>
-    const ctx = document.getElementById('lineChart').getContext('2d');
-    const lineChart = new Chart(ctx, {
+    const labels = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+
+    const comPsico = [20, 95, 90, 80, 85, 75, 70, 65, 80, 85, 90, 95];
+    const semPsico = [0, 40, 60, 70, 30, 45, 50, 55, 60, 65, 70, 75];
+
+    const respostasUsuario = JSON.parse(localStorage.getItem("respostasQuiz")) || [];
+    const respostasCorretas = [
+      "20%",                // Pergunta 1
+      "Controle emocional", // Pergunta 2
+      "Verdadeiro",         // Pergunta 3
+      "Tática de jogo",     // Pergunta 4
+      "Mais de 80%"         // Pergunta 5
+    ];
+    const usuario = respostasUsuario.map((resposta, i) => resposta === respostasCorretas[i] ? 100 : 0);
+
+    new Chart(document.getElementById("grafico"), {
       type: 'line',
       data: {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-        datasets: [{
-          label: 'Performance Mental (%)',
-          data: [60, 65, 70, 74, 78, 82],
-          borderColor: '#0D1128',
-          backgroundColor: 'rgba(13,17,40,0.1)',
-          tension: 0.3,
-          fill: true
-        }]
+        labels: labels,
+        datasets: [
+          {
+            label: 'Com Psicólogo',
+            data: comPsico,
+            borderColor: '#007bff',
+            fill: false,
+            tension: 0.4
+          },
+          {
+            label: 'Sem Psicólogo',
+            data: semPsico,
+            borderColor: 'red',
+            fill: false,
+            tension: 0.4
+          },
+        ]
       },
       options: {
         responsive: true,
         plugins: {
-          legend: { display: true }
+          legend: { labels: { color: 'white' } },
+          tooltip: { mode: 'index', intersect: false }
         },
         scales: {
+          x: { ticks: { color: 'white' } },
           y: {
             beginAtZero: true,
-            max: 100
+            max: 100,
+            ticks: { color: 'white' }
           }
         }
       }
     });
+
+    function voltarPagina() {
+    window.location.href = "./index.html";
+    }
   </script>
 </body>
 </html>
