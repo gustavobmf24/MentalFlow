@@ -80,8 +80,8 @@ button:hover {
 }
 
 .opcao:hover {
-  background-color: #000a9d;
-  transition: 1s;
+  background-color: #2f3dff;
+  transition: 1,5s;
   border-radius: 30px;
 }
 
@@ -95,3 +95,22 @@ button:hover {
   top: 70px;
   font-size: 25px;
 }
+
+.botao-voltar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #4da3ff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.botao-voltar:hover {
+  background-color: #00026a;
+}
+

@@ -5,21 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MentalFlow</title>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
   <link rel="stylesheet" href="./css/estilo.css">
 </head>
 
 <header>
   <img src="./assets/imgs/logo.png" alt="Logo" width="100px" height="100px">
-  <ul>
-    <li class="Home"><a href="#">Home</a></li>
-    <li class="SobreNos"><a href="#">Sobre nós</a></li>
-    <li class="Serviço"><a href="#">Quiz</a></li>
-    <li class="FaleConosco"><a href="#">Fale Conosco</a></li>
-    <li class="|"><a href="#">|</a></li>
+  <div class="header_ul">
+    <a class="Home" href="#">Home</a>
+    <a class="SobreNos" href="#">Sobre nós</a>
+    <a class="Serviço" href="Quiz">Quiz</a>
+    <a class="|" href="#">|</a>
     <img src="./assets/imgs/PainelDoCliente.png" alt="cadastro" width="30px" height="30px">
-    <li class="Painel"><a href="./login.html">Painel do Cliente</a></li>
-  </ul>
+    <a class="Painel" id="Painel" href="./login.html">Painel do Cliente</a>
+  </div>
 </header>
+
 <body style="overflow-x: hidden;">
 
   <div class="container">
@@ -43,7 +44,7 @@
 
 
   <div class="sobre-nos">
-    
+
     <h2 class="sobre-nos-titulo"><i>SOBRE NÓS</i></h2>
 
 
@@ -73,19 +74,90 @@
       </p>
     </div>
     <img class="sobre-nos-img" src="../public/assets/imgs/Cristiano.jpg" alt="">
-  </div></div><div class="linha-horizontal"></div>
+  </div>
+  </div>
+  <div class="linha-horizontal"></div>
 
 
   <div class="estadio">
     <div class="Quiz">
       <h2>Quiz</h2>
-      <p><b>Avalie como a psicologia esportiva influencia o desempenho, preparo mental e <br> prevenção de lesões no futebol.</b>
-<br><i><br>Este quiz explora os principais impactos psicológicos no alto rendimento esportivo.</i></p>
-      <button class="botao-quiz" href="../public/login.html">Começar</button>
+      <p><b>Avalie como a psicologia esportiva influencia o desempenho, preparo mental e <br> prevenção de lesões no
+          futebol.</b>
+        <br><i><br>Este quiz explora os principais impactos psicológicos no alto rendimento esportivo.</i>
+      </p>
+      <button  onclick="iniciarQuiz()" class="botao-quiz" href="">Começar</button>
+     
+      
+      
     </div>
+  </div>
+  <div class="linha-horizontal2"></div>
+
+  <div class="curiosidades-section">
+  <h2 class="curiosidades-titulo">Curiosidades</h2>
+  <p class="curiosidades-texto">
+    Você sabia que atletas que trabalham o lado emocional têm até 30% mais chance de se recuperar de lesões mais rapidamente?
+  </p>
+ </div>
+ <div class="sujestoes">
+  <h4>Sujestoes para você fazer também:</h4>
+ </div>
+  <div class = container_mvp>
+      <div class = card_mvp>
+        <div class = icon_mvp>
+          <i class='bx bx-bullseye'></i>
+          <H3>Rotina e Disciplina</H3>
+        </div>
+        <div class = content_mvp>
+         <br><br> <p><b>Atletas fazem:</b> horários fixos para treino, descanso, alimentação. <br><br>
+ <b>Você pode fazer:</b> criar uma rotina de sono, horários fixos para estudar/trabalhar e tempo para lazer.</p>
+        </div>
+      </div>    
+
+      <div class = card_mvp>
+        <div class = icon_mvp>
+          <i class='bx bx-show-alt'></i>
+          <h3> Estabelecimento de Metas</h3>
+        </div>
+        <div class = content_mvp>
+          <br><br><p><b>Atletas fazem:</b> definem metas específicas para treinos e competições. <br><br>
+ <b>Você pode fazer:</b> criar objetivos diários ou semanais, como estudar por uma hora ou concluir uma tarefa importante.</p>
+        </div>
+      </div>    
+
+      <div class = card_mvp>
+        <div class = icon_mvp>
    
-   </div>
-</script>
+        <i class='bx bx-diamond' ></i>
+        <h3> Visualização Positiva</h3>
+        </div>
+        <div class = content_mvp>
+          <br><br><p><b>Atletas fazem:</b> visualizam o sucesso antes das competições para melhorar o desempenho. <br><br>
+ <b>Você pode fazer:</b> imaginar-se lidando bem com situações difíceis, como reuniões, provas ou conversas importantes.</p>
+        </div>
+      </div>    
+    </div>
+    
+  </script>
+    <footer>
+    <div class="footer-info">
+      <p>&copy; 2025 MentalFlow. Todos os direitos reservados.</p>
+      <p>Contato: <a href="mailto:contato@mentalflow.com">contato@mentalflow.com</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Política de Privacidade</a> |
+      <a href="#">Termos de Uso</a> |
+      <a href="#">Siga-nos no Instagram</a>
+    </div>
+  </footer>
 </body>
 
 </html>
+<script>
+  function iniciarQuiz() {
+  sessionStorage.setItem('quizIniciado', 'true');
+  window.location.href = './login.html';
+}
+
+</script>

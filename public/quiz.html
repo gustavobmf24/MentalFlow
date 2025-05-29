@@ -5,102 +5,217 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz de Psicologia Esportiva</title>
   <link rel="stylesheet" href="./css/quiz.css" />
+  <style>
+    
+  </style>
 </head>
 <body>
   <div class="quiz-container">
     <div class="dentro-container">
-    <h1>Quiz de Psicologia Esportiva</h1>
-    <div id="quiz"></div>
-    <button id="proxima">Próxima</button>
+      <h1>Quiz de Psicologia Esportiva</h1>
+      <div id="quiz"></div>
+      <button id="proxima" style="display:none" onclick="proximaPergunta()">Próxima</button>
+      
     </div>
     <div id="resultado"></div>
   </div>
-  <script src="script.js"></script>
-  
+
+  <script>
+    const perguntas = [
+      {
+        texto: "1. Qual o percentual médio de melhora no desempenho de um atleta com acompanhamento psicológico?",
+        opcoes: ["5%", "10%", "20%", "40%"],
+        correta: 2
+      },
+      {
+        texto: "2. Qual dessas habilidades é mais desenvolvida com o suporte de um psicólogo esportivo?",
+        opcoes: ["Força muscular", "Técnica de jogo", "Controle emocional", "Velocidade de reação"],
+        correta: 2
+      },
+      {
+        texto: "3. Atletas com acompanhamento psicológico têm menos chances de se lesionar.",
+        opcoes: ["Verdadeiro", "Falso"],
+        correta: 0
+      },
+      {
+        texto: "4. Qual dessas áreas a psicologia esportiva NÃO trabalha diretamente?",
+        opcoes: ["Motivação", "Concentração", "Tática de jogo", "Ansiedade"],
+        correta: 2
+      },
+      {
+        texto: "5. Quantos atletas de alto rendimento já utilizam acompanhamento psicológico?",
+        opcoes: ["Menos de 10%", "30%", "40 a 60%", "Mais de 80%"],
+        correta: 2
+      },
+      {
+  texto: "6. O que é visualização na psicologia esportiva?",
+  opcoes: [
+    "Análise de vídeos de jogos",
+    "Imaginar mentalmente a execução de uma tarefa com sucesso",
+    "Observar outros atletas durante treinos",
+    "Avaliação psicológica por imagem cerebral"
+  ],
+  correta: 1
+},
+{
+  texto: "7. Qual é uma técnica comum usada por psicólogos esportivos para reduzir a ansiedade pré-competição?",
+  opcoes: [
+    "Hidroterapia",
+    "Treino de resistência",
+    "Respiração controlada",
+    "Exercício de força máxima"
+  ],
+  correta: 2
+},
+{
+  texto: "8. O que se entende por foco atencional em atletas?",
+  opcoes: [
+    "A capacidade de manter atenção no ambiente externo",
+    "A capacidade de ignorar o treinador",
+    "A habilidade de se concentrar no que é relevante durante a performance",
+    "Memorizar jogadas do adversário"
+  ],
+  correta: 2
+},
+{
+  texto: "9. Qual o papel da psicologia esportiva na recuperação de lesões?",
+  opcoes: [
+    "Evitar a necessidade de fisioterapia",
+    "Auxiliar no controle da dor e na motivação para reabilitação",
+    "Substituir o trabalho médico",
+    "Recomendar medicamentos"
+  ],
+  correta: 1
+},
+{
+  texto: "10. O que significa resiliência no contexto esportivo?",
+  opcoes: [
+    "Ficar calado diante das críticas",
+    "Reagir com raiva após derrotas",
+    "Recuperar-se emocionalmente após falhas ou desafios",
+    "Evitar confrontos com outros atletas"
+  ],
+  correta: 2
+},
+{
+  texto: "11. O que é a 'zona ideal de funcionamento' para um atleta?",
+  opcoes: [
+    "Estado em que o atleta sente raiva e usa isso como motivação",
+    "Nível ótimo de ativação emocional e foco para melhor desempenho",
+    "Momento de exaustão física total",
+    "Estado de repouso antes da competição"
+  ],
+  correta: 1
+},
+{
+  texto: "12. Qual é a relação entre autoconfiança e desempenho esportivo?",
+  opcoes: [
+    "Quanto menos confiança, melhor a concentração",
+    "Alta autoconfiança contribui para melhor desempenho",
+    "Autoconfiança leva à preguiça",
+    "Não há relação comprovada"
+  ],
+  correta: 1
+},
+{
+  texto: "13. Um dos objetivos da psicologia esportiva é:",
+  opcoes: [
+    "Ensinar táticas e estratégias de jogo",
+    "Melhorar habilidades físicas",
+    "Promover bem-estar psicológico e maximizar o desempenho mental",
+    "Controlar a alimentação dos atletas"
+  ],
+  correta: 2
+},
+{
+  texto: "14. Como a motivação extrínseca se manifesta no esporte?",
+  opcoes: [
+    "Desejo interno de superação",
+    "Necessidade de agradar aos outros",
+    "Busca por recompensas externas como troféus e reconhecimento",
+    "Foco em metas pessoais"
+  ],
+  correta: 2
+},
+{
+  texto: "15. Qual destas estratégias pode ajudar na construção de rotinas pré-competição eficazes?",
+  opcoes: [
+    "Evitar qualquer preparação mental",
+    "Seguir sempre o que os colegas fazem",
+    "Criar hábitos consistentes e positivos antes de competir",
+    "Assistir vídeos aleatórios para distrair"
+  ],
+  correta: 2
+}
+
+    ];
+
+    let perguntaAtual = 0;
+    let acertos = 0;
+
+    // Acesso direto pelos IDs via variável (sem usar document)
+    const quizDiv = quiz;
+    const btnProxima = proxima;
+    const divResultado = resultado;
+
+    function mostrarPergunta() {
+      const p = perguntas[perguntaAtual];
+      quizDiv.innerHTML = `<p class="pergunta">${p.texto}</p>`;
+
+      p.opcoes.forEach((opcao, index) => {
+        const botao = document.createElement("button");
+        botao.textContent = opcao;
+        botao.className = "opcao";
+        botao.onclick = () => responder(index);
+        quizDiv.appendChild(botao);
+      });
+    }
+
+    function responder(respostaSelecionada) {
+      const pergunta = perguntas[perguntaAtual];
+      const botoes = quizDiv.getElementsByClassName("opcao");
+
+      for (let i = 0; i < botoes.length; i++) {
+        botoes[i].disabled = true;
+        if (i === pergunta.correta) {
+          botoes[i].style.backgroundColor = "#4CAF50"; // verde
+        } else if (i === respostaSelecionada) {
+          botoes[i].style.backgroundColor = "#f44336"; // vermelho
+        }
+      }
+
+      if (respostaSelecionada === pergunta.correta) {
+        acertos++;
+      }
+
+      btnProxima.style.display = "block";
+    }
+
+    function proximaPergunta() {
+      perguntaAtual++;
+      btnProxima.style.display = "none";
+
+      if (perguntaAtual < perguntas.length) {
+        mostrarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      quizDiv.innerHTML = "";
+      const total = perguntas.length;
+      const percentual = ((acertos / total) * 100).toFixed(1);
+
+      divResultado.innerHTML = `
+        <p>Você acertou <strong>${acertos}</strong> de <strong>${total}</strong> perguntas.</p>
+        <p>Seu desempenho foi de <strong>${percentual}%</strong>.</p>
+      `;
+    }
+
+    // Inicia o quiz
+    mostrarPergunta();
+    
+  </script>
 </body>
 </html>
-<script>
-const perguntas = [
-  {
-    texto: "1. Qual o percentual médio de melhora no desempenho de um atleta com acompanhamento psicológico?",
-    opcoes: ["5%", "10%", "20%", "40%"],
-    correta: 2
-  },
-  {
-    texto: "2. Qual dessas habilidades é mais desenvolvida com o suporte de um psicólogo esportivo?",
-    opcoes: ["Força muscular", "Técnica de jogo", "Controle emocional", "Velocidade de reação"],
-    correta: 2
-  },
-  {
-    texto: "3. Atletas com acompanhamento psicológico têm menos chances de se lesionar.",
-    opcoes: ["Verdadeiro", "Falso"],
-    correta: 0
-  },
-  {
-    texto: "4. Qual dessas áreas a psicologia esportiva NÃO trabalha diretamente?",
-    opcoes: ["Motivação", "Concentração", "Tática de jogo", "Ansiedade"],
-    correta: 2
-  },
-  {
-    texto: "5. Quantos atletas de alto rendimento já utilizam acompanhamento psicológico?",
-    opcoes: ["Menos de 10%", "30%", "40 a 60%", "Mais de 80%"],
-    correta: 3
-  }
-];
-
-let perguntaAtual = 0;
-let acertos = 0;
-
-const quizDiv = document.getElementById("quiz");
-const btnProxima = document.getElementById("proxima");
-const divResultado = document.getElementById("resultado");
-
-
-function mostrarPergunta() {
-  const p = perguntas[perguntaAtual];
-  quizDiv.innerHTML = `<p class="pergunta">${p.texto}</p>`;
-
-
-  for (var i = 0; i < p.opcoes.length; i++) {
-    quizDiv.innerHTML += `<button class="opcao" onclick="responder(${i})">${p.opcoes[i]}</button>`;
-  }
-}
-
-function responder(respostaSelecionada) {
-  const pergunta = perguntas[perguntaAtual];
-
-  if (respostaSelecionada === pergunta.correta) {
-    acertos++;
-  }
-
-  btnProxima.style.display = "block";
-}
-
-btnProxima.addEventListener("click", () => {
-  perguntaAtual++;
-  btnProxima.style.display = "none";
-
-  if (perguntaAtual < perguntas.length) {
-    mostrarPergunta();
-  } else {
-    mostrarResultado();
-  }
-});
-
-function mostrarResultado() {
-  quizDiv.innerHTML = "";
-
-  const total = perguntas.length;
-  const percentual = ((acertos / total) * 100).toFixed(1);
-
-  divResultado.innerHTML = `
-    <p>Você acertou <strong>${acertos}</strong> de <strong>${total}</strong> perguntas.</p>
-    <p>Seu desempenho foi de <strong>${percentual}%</strong>.</p>
-  `;
-}
-
-
-
-mostrarPergunta();
-
-</script>

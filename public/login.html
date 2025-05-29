@@ -15,11 +15,11 @@
         <form>
             <h1>Login</h1>
             <div class="input-box">
-                <input placeholder="Email" type="text">
+                <input placeholder="Email" type="text" id="email">
                 <i class="bx bxs-user"></i>
             </div>
             <div class="input-box">
-                <input placeholder="Senha" type="password">
+                <input placeholder="Senha" type="password" id="senha">
                 <i class="bx bxs-lock-alt"></i>
             </div>
 
@@ -30,7 +30,7 @@
                 </label>
             </div>
 
-            <button type="submit" class="login" href="./dashboard/dashboard.html">Login</button>
+            <button onclick="validarLogin()" type="submit" class="login" window.location.href = "./simulador.html"; >Login</button>
 
             <div class="register-link">
                 <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
@@ -40,3 +40,31 @@
 </body>
 
 </html>
+<script>
+    
+    let campos = ["usuario", "senha"];
+    
+for (let i = 0; i < campos.length; i++) {
+    console.log("Campo " + i + ": " + campos[i]);
+}
+
+// Validação básica de fluxo
+function validarLogin() {
+    if (email.value == '' || senha.value == '') {
+        alert('Preencha os campos para se logar!')
+        
+    }
+    else{
+      let quizIniciado = sessionStorage.getItem("quizIniciado");
+
+      if (quizIniciado == "true") {
+          sessionStorage.removeItem("quizIniciado");
+          window.location.href = "quiz.html";
+          return false;
+        } else {
+            alert("⚠️ Você deve clicar no botão 'Fazer Quiz' antes de fazer o login.");
+        return false;
+    }
+    }
+}
+</script>

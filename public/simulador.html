@@ -14,23 +14,23 @@
 
     <div class="cards">
       <div class="card">
-        <h2>Melhora Média no Desempenho</h2>
-        <div class="valor">20%</div>
+        <h2>Total De respostas</h2>
+        <div class="valor">20</div>
         <p>Acompanhamento psicológico pode aumentar o desempenho em até 20%.</p>
       </div>
       <div class="card">
-        <h2>Habilidade Mais Impactada</h2>
+        <h2>Pontuação Média</h2>
         <div class="valor">Controle Emocional</div>
         <p>Aspecto mais desenvolvido com apoio psicológico.</p>
       </div>
       <div class="card">
-        <h2>Menor Índice de Lesões</h2>
+        <h2>Ultima Atualização</h2>
         <div class="valor">Verdadeiro</div>
         <p>Estudos indicam menor ocorrência de lesões com suporte psicológico.</p>
       </div>
     </div>
 
-    <h2 style="text-align:center; margin-bottom: 20px;">Desempenho por Mês com e sem acompanhamento psicológico</h2>
+    <h2 style="text-align:center; margin-bottom: 20px;">Média de acertos de cada questão</h2>
     <canvas id="grafico" width="1000" height="350"></canvas>
   </div>
 
@@ -45,11 +45,11 @@
 
     const respostasUsuario = JSON.parse(localStorage.getItem("respostasQuiz")) || [];
     const respostasCorretas = [
-      "20%",                // Pergunta 1
-      "Controle emocional", // Pergunta 2
-      "Verdadeiro",         // Pergunta 3
-      "Tática de jogo",     // Pergunta 4
-      "Mais de 80%"         // Pergunta 5
+      "20%",                
+      "Controle emocional", 
+      "Verdadeiro",        
+      "Tática de jogo",     
+      "Mais de 80%"         
     ];
     const usuario = respostasUsuario.map((resposta, i) => resposta === respostasCorretas[i] ? 100 : 0);
 
@@ -59,14 +59,14 @@
         labels: labels,
         datasets: [
           {
-            label: 'Com Psicólogo',
+            label: 'Acertos',
             data: comPsico,
             borderColor: '#007bff',
             fill: false,
             tension: 0.4
           },
           {
-            label: 'Sem Psicólogo',
+            label: 'Erros',
             data: semPsico,
             borderColor: 'red',
             fill: false,
