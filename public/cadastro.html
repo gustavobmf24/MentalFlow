@@ -39,9 +39,81 @@
 </html>
 <script>
   function validarCadastro() {
-     if (nome.value || email.value == '' || senha.value == '') {
-        alert('Preencha os campos para se cadastrar!')
-        
+    console.log("Função validarCadastro() foi chamada.");
+
+    if (nome.value == '' || email.value == '' || senha.value == '') {
+      alert('Preencha os campos para se cadastrar!');
+      console.log("Campos vazios detectados.");
+    } else {
+      console.log("Todos os campos foram preenchidos.");
+      cadastrar();
     }
   }
+
+  function cadastrar() {
+    console.log("Função cadastrar() foi chamada.");
+
+    var nomeVar = nome.value;
+    var emailVar = email.value;
+    var senhaVar = senha.value;
+
+    console.log("Valores capturados:");
+    console.log("Nome:", nomeVar);
+    console.log("Email:", emailVar);
+    console.log("Senha:", senhaVar);
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+      console.log("Erro: algum campo está em branco.");
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      return;
+    }
+
+    console.log("Enviando dados via fetch...");
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("Resposta recebida:", resposta);
+
+        if (resposta.ok) {
+          console.log("Cadastro realizado com sucesso.");
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            console.log("Redirecionando para login.html...");
+            window.location = "login.html";
+          }, 2000);
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          console.error("Erro no cadastro.");
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(`#ERRO no fetch: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    console.log("Função sumirMensagem() foi chamada.");
+    cardErro.style.display = "none";
+  }
+
+
 </script>

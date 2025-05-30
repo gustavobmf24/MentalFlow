@@ -5,6 +5,10 @@
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
@@ -21,21 +25,21 @@ body {
 
 /* HEADER */
 header {
- color: #000355;
- background-color: white;
-  opacity: 80%;
+  color: #000355;
+  background-color: white;
+  opacity: 50%;
   box-shadow: #111;
   padding: 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px; 
+  height: 80px;
   width: 1520px;
 }
 
 .container {
   background-image: url(../assets/imgs/papel\ dark.jpg);
-  background-repeat: no-repeat;
+ background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -54,7 +58,9 @@ header {
 .header_ul {
   list-style: none;
   display: flex;
-  gap: 160px;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
   margin-top: 1px;
   color: white;
   text-decoration: none;
@@ -64,29 +70,34 @@ header {
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
 }
-.header_ul::before{
-   margin-left: auto;
+
+.header_ul::before {
+  margin-left: auto;
 }
-.header_ul:hover::after, .header_ul:hover::before {
+
+.header_ul:hover::before {
   width: 100%;
 }
-  .header_ul a::after, .header_ul a::before{
+
+
+.header_ul a::before {
   content: '';
   width: 0%;
   height: 2px;
-  background: #f44336;
+  background: #000000;
   display: block;
   transition: 0.5s;
-  }
- .header_ul a{
-   color: #0095ff;
-   text-decoration: none;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   font-size: x-large;
-   padding: 4px 8px;
-   text-decoration: none;
+}
 
- }
+.header_ul a {
+  color: #0095ff;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: x-large;
+  padding: 4px 8px;
+  text-decoration: none;
+
+}
 
 
 header ul img {
@@ -99,14 +110,9 @@ header ul img {
 /* BOAS-VINDAS */
 .boas-vindas {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -35%);
-  background-color: rgba(13, 0, 0, 0.366);
-  backdrop-filter: blur(05px);
+top: 180px;
   border-radius: 40px;
   padding: 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   transition: 1s;
   width: 600px;
   max-width: 90%;
@@ -123,12 +129,10 @@ header ul img {
   font-family: Calisto MT, Bookman Old Style, Bookman, Goudy Old Style, Garamond, Hoefler Text, Bitstream Charter, Georgia, serif;
 }
 
-
-
 .boas-vindas .texto {
   text-align: center;
   position: relative;
-  right: 230px;
+  right: 120px;
 }
 
 .boas-vindas .texto p {
@@ -171,12 +175,12 @@ header ul img {
 
 /* SOBRE NÓS */
 .sobre-nos-titulo {
-  color: #ffffff;
+  color: #020045;
   text-align: center;
   font-size: 35px;
   padding: 5px 5px;
   transform: translate(-20px, -20px);
-  background-color: #020045;
+  background-color: #30d2ff;
   backdrop-filter: blur(15px);
   border-radius: 30px;
   margin-left: 710px;
@@ -184,7 +188,7 @@ header ul img {
   margin-right: 400px;
   position: relative;
   right: 350px;
-  width: ;
+
 
 }
 
@@ -205,8 +209,9 @@ header ul img {
   width: 120vh;
   transform: translate(-50px, -50px);
   padding: 40px;
-  box-shadow: 0 0 10px rgb(255, 255, 255);
+  box-shadow: 0 0 15px black
 }
+
 .linha-horizontal {
   height: 2px;
   background-color: white;
@@ -238,19 +243,22 @@ h1 {
   color: #0f00b9;
   border-radius: 90px;
 }
-.Quiz{
+
+.Quiz {
   color: rgb(0, 0, 0);
   font-size: 150px;
   background-color: #30d2ff;
+  box-shadow: 0 0 15px black;
   text-align: center;
   position: relative;
   top: 90px;
   height: 150px;
-   justify-self: center;
-   width: 75vw;
-   border-radius: 140px;
+  justify-self: center;
+  width: 75vw;
+  border-radius: 140px;
 }
-.Quiz h2{
+
+.Quiz h2 {
   color: #020045;
   position: relative;
   right: 20px;
@@ -258,7 +266,7 @@ h1 {
   text-align: center;
 }
 
-.botao-quiz{
+.botao-quiz {
   width: 150px;
   height: 60px;
   border-radius: 40px;
@@ -273,12 +281,13 @@ h1 {
   right: 20px;
 }
 
-.Quiz p{
+.Quiz p {
   font-size: 20px;
   color: white;
   position: relative;
   top: 40px;
 }
+
 .linha-horizontal2 {
   height: 2px;
   background-color: white;
@@ -286,9 +295,11 @@ h1 {
   margin: 40px 0;
   opacity: 0.4;
 }
+
 .curiosidades-section {
   background-color: #30d2ff;
   color: #020045;
+  box-shadow: 0 0 15px black;
   padding: 60px 20px;
   text-align: center;
   width: 75vw;
@@ -347,9 +358,8 @@ h1 {
   z-index: 1;
   text-align: center;
   box-shadow: 0 0 20px black;
-  background-color:#000355;
-  color:white
-  
+  background-color: #000355;
+  color: white
 }
 
 .icon_mvp i {
@@ -386,7 +396,7 @@ h1 {
   transition-delay: 0.2s;
 }
 
-.sujestoes{
+.sujestoes {
   font-size: 40px;
   position: relative;
   top: 90px;
@@ -397,36 +407,37 @@ h1 {
   border-radius: 40px;
   box-shadow: 0 0 10px black;
 }
-.sujestoes h4{
-  color: black;             
-  font-weight: bold;        
-  font-size: 32px;          
+
+.sujestoes h4 {
+  color: black;
+  font-weight: bold;
+  font-size: 32px;
   display: flex;
-  justify-content: center;   
-  align-items: center;       
-  height: 150px; 
+  justify-content: center;
+  align-items: center;
+  height: 150px;
   position: relative;
   top: -37px;
 }
 
-    footer {
-      background-color: #0a1f44;
-      color: #ffffff;
-      padding: 30px 20px;
-      text-align: center;
-    }
+footer {
+  background-color: #0a1f44;
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+}
 
-    footer a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-    }
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+footer a:hover {
+  text-decoration: underline;
+}
 
-    .footer-info {
-      margin-bottom: 10px;
-    }
+.footer-info {
+  margin-bottom: 10px;
+}

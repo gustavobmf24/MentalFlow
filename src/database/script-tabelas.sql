@@ -6,57 +6,60 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+create database mentalFlow;
+use mentalFlow;
 
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+create table cadastro (
+idCadastro int primary key auto_increment,
+nome varchar(45),
+email varchar(45),
+senha varchar(45)
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+create table Quiz (
+idQuiz int primary key auto_increment,
+categoria varchar(45),
+respostas int,
+perguntas varchar(255),
+idCadastro int,
+constraint fk_quiz_cadastro foreign key (idCadastro)
+references cadastro (idCadastro)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+
+create table Dashboard (
+idDashboard int primary key auto_increment,
+totalRespostas int,
+mediaPontuacao decimal(5,2 ),
+quantasPessoas int,
+idQuiz int,
+constraint fk_dashboard_quiz foreign key (idQuiz)
+	references Quiz (idQuiz)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+insert into cadastro (nome, email, senha) values
+('Gustavo', 'gustavo@gmail.com', 'gustavo1');
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+insert into Quiz (categoria, respostas, perguntas, idCadastro) values
+('psicologia', 2, '1. Qual o percentual médio de melhora no desempenho de um atleta com acompanhamento psicológico?', 1),
+('psicologia', 2, '2. Qual dessas habilidades é mais desenvolvida com o suporte de um psicólogo esportivo?', 1),
+('psicologia', 0, '3. Atletas com acompanhamento psicológico têm menos chances de se lesionar.', 1), 
+('psicologia', 2, '4. Qual dessas áreas a psicologia esportiva NÃO trabalha diretamente?', 1),
+('psicologia', 2, '5. Quantos atletas de alto rendimento já utilizam acompanhamento psicológico?', 1),
+('psicologia', 1, '6. O que é visualização na psicologia esportiva?', 1),
+('psicologia', 2, '7. Qual é uma técnica comum usada por psicólogos esportivos para reduzir a ansiedade pré-competição?', 1),
+('psicologia', 2, '8. O que se entende por foco atencional em atletas?', 1),
+('psicologia', 1, '9. Qual o papel da psicologia esportiva na recuperação de lesões?', 1),
+('psicologia', 2, '10. O que significa resiliência no contexto esportivo?', 1),
+('psicologia', 1, '11. O que é a ''zona ideal de funcionamento'' para um atleta?', 1),
+('psicologia', 1, '12. Qual é a relação entre autoconfiança e desempenho esportivo?', 1),
+('psicologia', 2, '13. Um dos objetivos da psicologia esportiva é:', 1),
+('psicologia', 2, '14. Como a motivação extrínseca se manifesta no esporte?', 1),
+('psicologia', 2, '15. Qual destas estratégias pode ajudar na construção de rotinas pré-competição eficazes?', 1);
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+insert into Dashboard (totalRespostas, mediaPontuacao, quantasPessoas, idQuiz)values
+('10', '70.50', '1', '1');
+
+
+
