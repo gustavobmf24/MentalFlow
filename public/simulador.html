@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Dashboard MentalFlow</title>
   <link rel="stylesheet" href="./css/dashboards.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    
+
 </head>
+
 <body>
   <div class="container">
     <h1>Resultados do Quiz - MentalFlow</h1>
 
     <div class="cards">
       <div class="card">
-        <h2>Total De Respostas</h2>
+        <h2>Média de Acertos</h2>
         <div class="valor">20</div>
         <p>Acompanhamento psicológico pode aumentar o desempenho em até 20%.</p>
       </div>
       <div class="card">
-        <h2>Pontuação Média</h2>
+        <h2>Questão mais Facil</h2>
         <div class="valor">Controle Emocional</div>
         <p>Aspecto mais desenvolvido com apoio psicológico.</p>
       </div>
       <div class="card">
-        <h2>Quantas Pessoas Acessaram</h2>
+        <h2>Questão mais Dificil</h2>
         <div class="valor">Verdadeiro</div>
         <p>Estudos indicam menor ocorrência de lesões com suporte psicológico.</p>
       </div>
@@ -37,19 +39,33 @@
   <!-- BOTÃO VOLTAR -->
   <button class="botao-voltar" onclick="voltarPagina()">Voltar</button>
 
+  <!-- Adicione este canvas no local onde deseja exibir o gráfico -->
+  <canvas id="grafico" width="800" height="400"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    const labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13','14','15',];
+    const labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 
     const Acertos = [20, 95, 90, 80, 85, 75, 70, 65, 80, 85, 90, 95, 10, 12, 15];
-    const Erros = [0, 40, 60, 70, 30, 45, 50, 55, 60, 65, 70, 75];
+    const Erros = [0, 40, 60, 70, 30, 45, 50, 55, 60, 65, 70, 75, 90, 88, 85];
 
     const respostasUsuario = JSON.parse(localStorage.getItem("respostasQuiz")) || [];
     const respostasCorretas = [
-      "20%",                
-      "Controle emocional", 
-      "Verdadeiro",        
-      "Tática de jogo",     
-      "Mais de 80%"         
+      "20%",
+      "Controle emocional",
+      "Verdadeiro",
+      "Tática de jogo",
+      "Mais de 80%",
+      " Imaginar mentalmente a execução de uma tarefa com sucesso",
+      "Respiração controlada",
+      "A habilidade de se concentrar no que é relevante durante a performance",
+      "Auxiliar no controle da dor e na motivação para reabilitação",
+      "Recuperar-se emocionalmente após falhas ou desafios",
+      "Nível ótimo de ativação emocional e foco para melhor desempenho",
+      "Alta autoconfiança contribui para melhor desempenho",
+      "Promover bem-estar psicológico e maximizar o desempenho mental",
+      "Busca por recompensas externas como troféus e reconhecimento",
+      "Criar hábitos consistentes e positivos antes de competir",
     ];
     const usuario = respostasUsuario.map((resposta, i) => resposta === respostasCorretas[i] ? 100 : 0);
 
@@ -60,40 +76,64 @@
         datasets: [
           {
             label: 'Acertos',
-            data: comPsico,
-            borderColor: '#007bff',
+            data: Acertos,
+            borderColor: '#00d9ff',
+            backgroundColor: '#00d9ff',
             fill: false,
-            tension: 0.4
-          },
-          {
-            label: 'Erros',
-            data: semPsico,
-            borderColor: 'red',
-            fill: false,
-            tension: 0.4
+            tension: 0.4,
+            pointRadius: 4
           },
         ]
       },
       options: {
         responsive: true,
         plugins: {
-          legend: { labels: { color: 'white' } },
-          tooltip: { mode: 'index', intersect: false }
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          },
+          title: {
+            display: true,
+            text: 'Desempenho por Questão',
+            color: 'white',
+            font: {
+              size: 18
+            }
+          }
         },
         scales: {
-          x: { ticks: { color: 'white' } },
+          x: {
+            title: {
+              display: true,
+              text: 'Questões',
+              color: 'white'
+            },
+            ticks: {
+              color: 'white'
+            }
+          },
           y: {
             beginAtZero: true,
             max: 100,
-            ticks: { color: 'white' }
+            title: {
+              display: true,
+              text: 'Porcentagem (%)',
+              color: 'white'
+            },
+            ticks: {
+              color: 'white'
+            }
           }
         }
       }
     });
-
-    function voltarPagina() {
-    window.location.href = "./index.html";
-    }
   </script>
+
 </body>
+
 </html>

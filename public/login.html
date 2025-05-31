@@ -30,7 +30,7 @@
                 </label>
             </div>
 
-            <button onclick="validarLogin()" type="submit" class="login" window.location.href = "./simulador.html"; >Login</button>
+            <button onclick="validarLogin()" type="button" class="login" ; >Login</button>
 
             <div class="register-link">
                 <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
@@ -48,23 +48,25 @@ for (let i = 0; i < campos.length; i++) {
     console.log("Campo " + i + ": " + campos[i]);
 }
 
-// Validação básica de fluxo
 function validarLogin() {
     if (email.value == '' || senha.value == '') {
-        alert('Preencha os campos para se logar!')
-        
-    }
-    else{
-      let quizIniciado = sessionStorage.getItem("quizIniciado");
+        alert('Preencha os campos para se logar!');
+    } else {
+        let quizIniciado = sessionStorage.getItem("quizIniciado");
 
-      if (quizIniciado == "true") {
-          sessionStorage.removeItem("quizIniciado");
-          window.location.href = "quiz.html";
-          return false;
+        if (quizIniciado == "true") {
+            sessionStorage.EMAIL_USUARIO = email.value;
+            sessionStorage.NOME_USUARIO = "Usuário Teste";
+            sessionStorage.ID_USUARIO = 123;
+
+            sessionStorage.removeItem("quizIniciado");
+            window.location.href = "./quiz.html";
+            return false;
         } else {
             alert("⚠️ Você deve clicar no botão 'Fazer Quiz' antes de fazer o login.");
-        return false;
-    }
+            return false;
+        }
     }
 }
+
 </script>

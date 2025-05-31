@@ -87,7 +87,7 @@
           futebol.</b>
         <br><i><br>Este quiz explora os principais impactos psicológicos no alto rendimento esportivo.</i>
       </p>
-      <button  onclick="iniciarQuiz()" class="botao-quiz" href="">Começar</button>
+      <button onclick="iniciarQuiz()" class="botao-quiz">Fazer Quiz</button>
      
       
       
@@ -102,7 +102,7 @@
   </p>
  </div>
  <div class="sujestoes">
-  <h4>Sujestoes para você fazer também:</h4>
+  <h4>Sujestões para você fazer também:</h4>
  </div>
   <div class = container_mvp>
       <div class = card_mvp>
@@ -157,7 +157,7 @@
 </html>
 <script>
   function iniciarQuiz() {
-  sessionStorage.setItem('quizIniciado', 'true');
+  sessionStorage.setItem('quizIniciado', true);
   window.location.href = './login.html';
 }
 
