@@ -19,10 +19,6 @@ function autenticar(req, res) {
 
                 if (resultadoAutenticar.length == 1) {
                     console.log(resultadoAutenticar);
-
-
-
-
                     res.json({
                         email: resultadoAutenticar[0].cadastroId,
                         nome: resultadoAutenticar[0].nome,

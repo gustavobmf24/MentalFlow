@@ -13,21 +13,18 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   color: #111;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   overflow: scroll;
-  background-image: url(../assets/imgs/fundodoquiz.png);
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
 }
 
 
 /* HEADER */
 header {
   color: #000355;
-  background-color: white;
-  opacity: 50%;
+  background-color: rgba(26, 186, 255, 0.751);
+  opacity: 70%;
   box-shadow: #111;
   padding: 10px 30px;
   display: flex;
@@ -38,16 +35,16 @@ header {
 }
 
 .container {
-  background-image: url(../assets/imgs/papel\ dark.jpg);
- background-repeat: no-repeat;
+  background-image: url(../assets/imgs/fotoazul.png);
+  background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
   height: 100vh;
-
 }
 
 .sobre-nos {
   height: 100vh;
+  background-image: url(../assets/imgs/fotoazul.png);
 }
 
 .logo {
@@ -90,7 +87,7 @@ header {
 }
 
 .header_ul a {
-  color: #0095ff;
+  color: #000dff;
   text-decoration: none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: x-large;
@@ -99,28 +96,57 @@ header {
 
 }
 
+.header_ul a:hover {
+  transition: 1.5s;
+  background-color: #2f90ffb4;
+  border-radius: 90px;
+  box-shadow: 0 0 15px rgb(0, 183, 255);
+}
 
 header ul img {
   margin-top: -5px;
-  margin-right: -100px;
+  margin-right: -150px;
+
 }
 
+.header_ul img {
+  margin-top: -5px;
+  margin-right: -100px;
+  margin-top: 3px;
+
+}
 
 
 /* BOAS-VINDAS */
 .boas-vindas {
   position: absolute;
-top: 180px;
+  top: 130px;
   border-radius: 40px;
-  padding: 40px;
   transition: 1s;
-  width: 600px;
-  max-width: 90%;
-  text-align: center;
-  height: 330px;
+  width: 800px;
+  height: 430px;
   font-size: 37px;
   font-weight: bold;
-  transition: all;
+  box-shadow: 0 0 25px rgb(0, 183, 255);
+  background-color: #0099ff3e;
+  position: relative;
+  left: 350px;
+   backdrop-filter: blur(10px);
+}
+.boas-vindas i{
+  position: relative;
+  top: 60px;
+}
+
+.boas-vindas .texto {
+  text-align: center;
+}
+
+.destaque {
+  position: relative;
+  right: 320px;
+  top: 10px;
+  color:#00d9ffd3;
 }
 
 .boas-vindas h3 {
@@ -129,16 +155,9 @@ top: 180px;
   font-family: Calisto MT, Bookman Old Style, Bookman, Goudy Old Style, Garamond, Hoefler Text, Bitstream Charter, Georgia, serif;
 }
 
-.boas-vindas .texto {
-  text-align: center;
-  position: relative;
-  right: 120px;
-}
-
 .boas-vindas .texto p {
   color: #bdfaff;
-  position: relative;
-  left: 230px;
+
 }
 
 .boas-vindas h1 {
@@ -146,19 +165,8 @@ top: 180px;
   font-family: initial;
 }
 
-.boas-vindas h1 img {
-  width: 370px;
-  position: relative;
-  height: 370px;
-  left: 10px;
-}
-
-
 .boas-vindas h2 {
-
   border-radius: 10px;
-  display: inline-block;
-  padding: 5px;
   font-style: italic;
   color: rgba(0, 98, 255, 0.994);
   height: 100px;
@@ -166,7 +174,7 @@ top: 180px;
 
 .boas-vindas p {
   margin-top: 10px;
-  font-weight: bold;
+
 }
 
 .menuVertical {
@@ -175,53 +183,59 @@ top: 180px;
 
 /* SOBRE NÓS */
 .sobre-nos-titulo {
-  color: #020045;
+  color: #00b3ff;
   text-align: center;
   font-size: 35px;
   padding: 5px 5px;
   transform: translate(-20px, -20px);
-  background-color: #30d2ff;
   backdrop-filter: blur(15px);
-  border-radius: 30px;
+  border-radius: 5px;
   margin-left: 710px;
   margin-top: 50px;
   margin-right: 400px;
   position: relative;
-  right: 350px;
-
-
+  top: -20px;
+  right: 540px;
+  width: 50vw;
+  transform: skew(-15deg);
+  box-shadow: 0 0 15px rgb(0, 183, 255);
+  background-color: #0099ff2c;
 }
 
 .sobre-nos-img {
   margin-left: 1068px;
   position: relative;
-  top: -742px;
-  width: 453px;
-  height: 700px;
-  box-shadow: 0 0 30px rgb(0, 0, 0);
+  left: 63px;
+  top: -665px;
+  width: 390px;
+  height: 695px;
+  box-shadow: 0 0 15px rgb(0, 183, 255);
+
   border-radius: 2px;
 }
 
 .descricao {
+  position: relative;
+  top: -10px;
   margin-left: 180px;
   font-size: 22px;
   margin-top: 50px;
   width: 120vh;
   transform: translate(-50px, -50px);
   padding: 40px;
-  box-shadow: 0 0 15px black
+  box-shadow: 0 0 15px rgb(0, 183, 255);
+  background-color: #0099ff29;
 }
 
 .linha-horizontal {
-  height: 2px;
+  height: 1px;
   background-color: white;
   width: 100%;
-  margin: 40px 0;
-  opacity: 0.4;
+  opacity: 90%;
 }
 
 .estadio {
-  background-image: url(../assets/imgs/fundodoquiz.png)linear-gradient(to top -100px);
+  background-image: url(../assets/imgs/fotoazul.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
@@ -247,19 +261,19 @@ h1 {
 .Quiz {
   color: rgb(0, 0, 0);
   font-size: 150px;
-  background-color: #30d2ff;
-  box-shadow: 0 0 15px black;
+  box-shadow: 0 0 15px rgb(0, 183, 255);
+  background-color: #0099ff34;
   text-align: center;
   position: relative;
   top: 90px;
   height: 150px;
   justify-self: center;
   width: 75vw;
-  border-radius: 140px;
+  border-radius: 2px;
 }
 
 .Quiz h2 {
-  color: #020045;
+  color: #00aaff;
   position: relative;
   right: 20px;
   font-size: 140px;
@@ -271,14 +285,20 @@ h1 {
   height: 60px;
   border-radius: 40px;
   font-size: 18px;
-  background-color: #30d2ff;
+  background-color: #0099ff6c;
   box-shadow: 0 0 10px rgb(5, 0, 51);
   color: #00033d;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
   position: relative;
   right: 20px;
+  transition: 0.9s;
+}
+
+.botao-quiz:hover {
+  transition: 0.9s;
+  background-color: #0099ff;
+  box-shadow: 0 0 15px rgb(0, 183, 255);
 }
 
 .Quiz p {
@@ -288,21 +308,25 @@ h1 {
   top: 40px;
 }
 
+
 .linha-horizontal2 {
-  height: 2px;
+  height: 1px;
   background-color: white;
   width: 100%;
   margin: 40px 0;
-  opacity: 0.4;
+}
+
+.curiosidades {
+  background-image: url(../assets/imgs/fotoazul.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .curiosidades-section {
-  background-color: #30d2ff;
-  color: #020045;
-  box-shadow: 0 0 15px black;
+  color: #00ccff;
   padding: 60px 20px;
   text-align: center;
-  width: 75vw;
   justify-self: center;
   border-radius: 140px;
 }
@@ -333,14 +357,12 @@ h1 {
   position: relative;
   max-width: 280px;
   height: 180px;
-  background-color: var(--cor_decoration);
   margin: 30px 30px;
   padding: 20px 15px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 5px 20px #0b0e2d48;
-  transition: 0.3s ease-in-out;
-  background-color: #0095ff;
+  transition: 0.6s ease-in-out;
+  box-shadow: 0 0 15px rgb(0, 183, 255);
   border-radius: 20px;
   top: 90px;
 }
@@ -357,8 +379,8 @@ h1 {
   left: 8px;
   z-index: 1;
   text-align: center;
-  box-shadow: 0 0 20px black;
-  background-color: #000355;
+  box-shadow: 0 0 15px rgb(0, 183, 255);
+  background-color: #0099ff6c;
   color: white
 }
 
@@ -376,11 +398,11 @@ h1 {
   position: relative;
   top: -140px;
   padding: 10px 15px;
-  color: var(--cor_branco);
+  color: rgb(0, 208, 255);
   text-align: justify;
   visibility: hidden;
   opacity: 0;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
   font-size: 15px;
 }
 
@@ -401,15 +423,14 @@ h1 {
   position: relative;
   top: 90px;
   left: 30%;
-  background-color: #0095ff;
+  box-shadow: 0 0 15px rgba(0, 183, 255);
   width: 600px;
   height: 80px;
   border-radius: 40px;
-  box-shadow: 0 0 10px black;
 }
 
 .sujestoes h4 {
-  color: black;
+  color: rgb(0, 187, 255);
   font-weight: bold;
   font-size: 32px;
   display: flex;
